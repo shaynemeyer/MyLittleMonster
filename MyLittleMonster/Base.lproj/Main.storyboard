@@ -21,6 +21,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ai9-Rp-gpC">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hw-CH-8l8">
+                                <rect key="frame" x="97" y="214" width="407" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="eZa-WN-lOV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="55"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <action selector="startBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vJV-ge-eY9"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-aQ-SIj">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
@@ -106,6 +117,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ai9-Rp-gpC" secondAttribute="bottom" id="2uA-an-beH"/>
                             <constraint firstItem="g9U-yz-b9p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-100" id="3S8-7y-zjn"/>
                             <constraint firstItem="8d7-oF-bKz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4UB-Z7-fRj"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="top" secondItem="8d7-oF-bKz" secondAttribute="bottom" constant="8" symbolic="YES" id="4gj-ap-MPL"/>
                             <constraint firstItem="8d7-oF-bKz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6db-LK-rtc"/>
                             <constraint firstItem="8d7-oF-bKz" firstAttribute="top" secondItem="7d1-rD-dE3" secondAttribute="bottom" constant="15" id="7Hc-IY-M4d"/>
                             <constraint firstItem="zH4-p6-F45" firstAttribute="centerX" secondItem="7d1-rD-dE3" secondAttribute="centerX" id="877-Ky-kOn"/>
@@ -114,13 +126,19 @@
                             <constraint firstItem="7d1-rD-dE3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BQc-d5-D5o"/>
                             <constraint firstItem="8d7-oF-bKz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="COI-mw-dMK"/>
                             <constraint firstAttribute="trailing" secondItem="gXO-aQ-SIj" secondAttribute="trailing" id="Fdu-mM-op0"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jco-oy-OnY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8d7-oF-bKz" secondAttribute="trailing" id="KUi-p7-ptn"/>
                             <constraint firstItem="zH4-p6-F45" firstAttribute="centerY" secondItem="7d1-rD-dE3" secondAttribute="centerY" id="Z2w-ZY-ecC"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="leading" secondItem="8d7-oF-bKz" secondAttribute="leading" id="ZuB-Yt-bVe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="g9U-yz-b9p" secondAttribute="bottom" constant="43" id="dll-qm-OOm"/>
                             <constraint firstItem="gXO-aQ-SIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eDl-Ib-1zY"/>
                             <constraint firstItem="ai9-Rp-gpC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ia0-yU-56d"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jpb-fh-pi1"/>
                             <constraint firstItem="7d1-rD-dE3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kwf-S0-0PH"/>
                             <constraint firstAttribute="trailing" secondItem="ai9-Rp-gpC" secondAttribute="trailing" id="mG4-2g-3Kr"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oed-m5-Cd4"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="top" secondItem="8d7-oF-bKz" secondAttribute="bottom" constant="8" id="up0-8i-N8A"/>
+                            <constraint firstItem="5Hw-CH-8l8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xcQ-IM-ev4"/>
                             <constraint firstItem="ai9-Rp-gpC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y0B-no-JEg"/>
                         </constraints>
                         <variation key="default">
@@ -130,6 +148,11 @@
                                 <exclude reference="7Hc-IY-M4d"/>
                                 <exclude reference="COI-mw-dMK"/>
                                 <exclude reference="KUi-p7-ptn"/>
+                                <exclude reference="4gj-ap-MPL"/>
+                                <exclude reference="Jco-oy-OnY"/>
+                                <exclude reference="ZuB-Yt-bVe"/>
+                                <exclude reference="oed-m5-Cd4"/>
+                                <exclude reference="xcQ-IM-ev4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -152,6 +175,7 @@
                         <outlet property="penaltyImg1" destination="bSj-bh-zO0" id="h2C-2z-dhM"/>
                         <outlet property="penaltyImg2" destination="M6g-KA-Ko8" id="48M-aJ-5xE"/>
                         <outlet property="penaltyImg3" destination="AH0-Hx-7Dt" id="R65-ay-WMA"/>
+                        <outlet property="startBtn" destination="5Hw-CH-8l8" id="DEq-HM-pqM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

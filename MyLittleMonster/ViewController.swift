@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var penaltyImg2: UIImageView!
     @IBOutlet weak var penaltyImg3: UIImageView!
     
+    @IBOutlet weak var startBtn: UIButton!
+    
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
     let MAX_PENALTIES = 3
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
     var timer: NSTimer!
     var monsterHappy = false
     var currentItem: UInt32 = 0
+    var gameIsOver = false
     
     var musicPlayer: AVAudioPlayer!
     var sfxBite: AVAudioPlayer!
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         foodImg.dropTarget  = monsterImg
         heartImg.dropTarget = monsterImg
         
@@ -87,7 +90,7 @@ class ViewController: UIViewController {
             print(err.debugDescription)
         }
         
-        startTimer()
+        gameStart()
     }
 
     func itemDroppedOnCharacter(notif: AnyObject) {
@@ -143,31 +146,51 @@ class ViewController: UIViewController {
             }
         }
         
-        let rand = arc4random_uniform(2) // 0 or 1
-        if rand == 0 {
-            foodImg.alpha = DIM_ALPHA
-            foodImg.userInteractionEnabled = false
-            
-            heartImg.alpha = OPAQUE
-            heartImg.userInteractionEnabled = true
-        } else {
-            heartImg.alpha = DIM_ALPHA
-            heartImg.userInteractionEnabled = false
-            
-            foodImg.alpha = OPAQUE
-            foodImg.userInteractionEnabled = true
+        if !gameIsOver {
+            let rand = arc4random_uniform(2) // 0 or 1
+            if rand == 0 {
+                foodImg.alpha = DIM_ALPHA
+                foodImg.userInteractionEnabled = false
+                
+                heartImg.alpha = OPAQUE
+                heartImg.userInteractionEnabled = true
+            } else {
+                heartImg.alpha = DIM_ALPHA
+                heartImg.userInteractionEnabled = false
+                
+                foodImg.alpha = OPAQUE
+                foodImg.userInteractionEnabled = true
+            }
+        
+            currentItem = rand
+            monsterHappy = false
+        }
+    }
+    
+    func gameStart() {
+
+
+        if gameIsOver {
+            monsterImg.playIdleAnimation()
+            gameIsOver = false
+            penalties = 0
         }
         
-        currentItem = rand
-        monsterHappy = false
-        
+        startTimer()
     }
     
     func gameOver() {
         timer.invalidate()
         monsterImg.playDeathAnimation()
         sfxDeath.play()
+        startBtn.hidden = false
+        gameIsOver = true
     }
 
+    @IBAction func startBtnTapped(sender: AnyObject) {
+        startBtn.hidden = true
+        
+        gameStart()
+    }
 }
 
